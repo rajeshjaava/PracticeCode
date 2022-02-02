@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.beust.jcommander.internal.Lists;
+
 public class Java8Streams {
 	public static void main(String args[]) {
 		Employee e1=new Employee(1,"Rajesh",150000,"Tpt");
@@ -35,6 +37,13 @@ public class Java8Streams {
 		// grouping by employee name
 		Map<String, List<Employee>> empGlist=empList.stream().collect(Collectors.groupingBy(Employee::getAddress));
 		empGlist.forEach((a,b)->System.out.print("key "+a+ ", value "+b));
+		
+	List<Integer> list=Lists.newArrayList(1,2,3,6,7,9,10,13,15);
+	Map<String,List<Integer>>m=list.stream().collect(Collectors.groupingBy(n->n%2==0?"Even":"Odd"));
+	System.out.println(" *************");
+	System.out.println(" even odd ");
+	m.forEach((m1,m2)-> System.out.println(m1+ " group by "+m2));
+	
 		
 		
 		
