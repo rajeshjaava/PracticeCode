@@ -1,7 +1,10 @@
 package com.learnings.core.stream;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Java8Streams {
@@ -25,6 +28,16 @@ public class Java8Streams {
 		//empList.stream().filter(e->e.getName().equals("Suresh")).map(e
 		
 		empList.forEach(n->System.out.print(n));
+		empList.sort((a,b)->a.getName().compareTo(b.getName()));
+		List emp1=empList.stream().filter(e->e.getSal()>10000).map(Employee::getName).collect(Collectors.toList());
+		emp1.forEach(System.out::println);
+		
+		// grouping by employee name
+		Map<String, List<Employee>> empGlist=empList.stream().collect(Collectors.groupingBy(Employee::getAddress));
+		empGlist.forEach((a,b)->System.out.print("key "+a+ ", value "+b));
+		
+		
+		
 	}
 
 }

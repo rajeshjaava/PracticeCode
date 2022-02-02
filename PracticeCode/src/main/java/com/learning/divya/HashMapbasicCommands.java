@@ -20,12 +20,13 @@ public class HashMapbasicCommands {
 	map4.put("A", "1");
 	map4.put("B", "2");
 	map4.put("C", "3");
-	System.out.println(map4);
+	
 	
 	HashMap map5 = new HashMap<String, String>();
 	map5.putAll(map4);
 	System.out.println(map5);
 	
 	map4.put("D", "5");
+	System.out.println(map4);
 	}
 }

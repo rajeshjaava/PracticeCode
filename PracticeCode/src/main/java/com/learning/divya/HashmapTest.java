@@ -76,8 +76,16 @@ public class HashmapTest {
 	
 	
 	map2.put("tuesday", 03);
+	System.out.println("String immutability ");
+	String s1="rajesh";
+	String s2="ravi";
+	s1=s1+s2;
+	System.out.println(s1);
 	
 	}
+	
+	
+	
 	
 
 }
