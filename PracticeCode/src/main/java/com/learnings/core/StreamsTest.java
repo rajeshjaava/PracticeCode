@@ -1,11 +1,32 @@
 package com.learnings.core;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class StreamsTest {
 	public static void main(String args[]) {
 		Employe e1=new Employe(1,"rajesh",10000,"tpt");
 		Employe e2=new Employe(2,"rakesh",90000,"ptr");
 		Employe e3=new Employe(3,"ramesh",17000,"ctr");
 		Employe e4=new Employe(4,"suresh",40000,"tpt");
+		List<Employe> eList=new ArrayList<Employe>();
+		eList.add(e1);
+		eList.add(e2);
+		eList.add(e3);
+		eList.add(e4);
+		eList.stream().forEach(System.out::println);
+		System.out.println("*************************");
+		//sorting employees based on name
+		Comparator <Employe> ecomp=(a,b)->a.getName().compareTo(b.getName());
+		List<Employe> sortedList=eList.stream().sorted(ecomp).collect(Collectors.toList());
+		sortedList.stream().forEach(System.out::println);
+		System.out.println("*************************");
+		eList.stream().collect(Collectors.groupingBy(Employe::getAddress)).
+		forEach((k,v)->System.out.println(" Key :"+k+"value "+v));
+		
+		
 		
 		
 	}
@@ -47,7 +68,7 @@ public class StreamsTest {
 	 private String address;
 	 private long sal;
 	 public String toString() {
-		 return "id "+id+" name "+name+" address"+address+"sal "+sal;
+		 return "id : "+id+" name :"+name+" address : "+address+"  sal  : "+sal;
 	 }
 	 
  }
