@@ -19,6 +19,7 @@ public static void main(String args[])
 	System.out.println("list sum "+al);
 	System.out.println("count "+al.stream().count());
 	System.out.println("limit "+al.stream().limit(3).collect(Collectors.toList()));
+	al.stream().collect(Collectors.toList());
 	}
 
 	
